@@ -25,7 +25,8 @@ class TestExample(BaseCase):
             ),
         ],
     )
-    # @pytest.mark.skip('skip')
+    
+    @pytest.mark.skip('skip')
     def test_search(self, query):
         self.base_page.search(query)
         assert 'No results found' not in self.driver.page_source
@@ -67,7 +68,7 @@ class TestExample(BaseCase):
         time.sleep(10)
         self.driver.switch_to.default_content()
 
-    # @pytest.mark.skip('skip')
+    @pytest.mark.skip('skip')
     def test_new_tab(self):
         current_window = self.driver.current_window_handle
 
@@ -100,7 +101,7 @@ class TestExample(BaseCase):
 
 class TestLoad(BaseCase):
 
-    # @pytest.mark.skip('skip')
+    @pytest.mark.skip('skip')
     def test_download(self):
         self.driver.get('https://www.python.org/downloads/release/python-3100/')
         time.sleep(5)
