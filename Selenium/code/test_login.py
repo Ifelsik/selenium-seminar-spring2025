@@ -130,8 +130,11 @@ class TestLogin(BaseCase):
     authorize = False
 
     def test_login(self, credentials):
+        ME = 'Черепнин Михаил'
         login, password = credentials
         self.login_page.login(login, password)
+
+        assert ME in self.driver.page_source
 
 
 class TestLK(BaseCase):
