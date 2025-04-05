@@ -7,7 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class PageNotOpenedExeption(Exception):
+class PageNotOpenedException(Exception):
     pass
 
 
@@ -22,7 +22,7 @@ class BasePage(object):
         while time.time() - started < timeout:
             if self.driver.current_url == self.url:
                 return True
-        raise PageNotOpenedExeption(f'{self.url} did not open in {timeout} sec, current url {self.driver.current_url}')
+        raise PageNotOpenedException(f'{self.url} did not open in {timeout} sec, current url {self.driver.current_url}')
 
     def __init__(self, driver):
         self.driver = driver
@@ -54,3 +54,4 @@ class BasePage(object):
         self.find(locator, timeout=timeout)
         elem = self.wait(timeout).until(EC.element_to_be_clickable(locator))
         elem.click()
+        return elem

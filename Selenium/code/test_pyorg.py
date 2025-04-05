@@ -100,7 +100,7 @@ class TestExample(BaseCase):
 
 class TestLoad(BaseCase):
 
-    @pytest.mark.skip('skip')
+    # @pytest.mark.skip('skip')
     def test_download(self):
         self.driver.get('https://www.python.org/downloads/release/python-3100/')
         time.sleep(5)
